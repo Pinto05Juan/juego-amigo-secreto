@@ -26,6 +26,7 @@ function actualizarLista() {
 
 function sortearAmigo() {
     let amigoEncontrado = "";
+    let terminoJuego = false;
     if(nombresAmigos.length == 0) {
         alert("Todavia no hay amigos para sortear. Escriba el nombre de alguno");
     } else {
@@ -34,9 +35,26 @@ function sortearAmigo() {
         amigoEncontrado = nombresAmigos[indiceSecreto];
         setItemText(listaAmigos, "");
         setItemText(listaResultado, `El amigo secreto es ${amigoEncontrado}`);
+        terminoJuego = true;
     }
+    setTimeout(function() {
+        if(terminoJuego) {
+            let opcion = prompt("Desea Seguir Jugando?");
+            opcion.toLowerCase();
+            if(opcion === "si") {
+                reiniciarJuego();
+            }
+        }
+    }, 1000);
+    
+}
+
+function reiniciarJuego() {
+    nombresAmigos = [];
+    setItemText(listaAmigos, "");
+    setItemText(listaResultado, "");
 }
 
 function setItemText(lista, text) {
-    lista.innerHTML = text;
+    lista.textContent = text;
 }
