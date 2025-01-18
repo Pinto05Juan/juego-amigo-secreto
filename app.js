@@ -40,7 +40,7 @@ function sortearAmigo() {
     setTimeout(function() {
         if(terminoJuego) {
             let opcion = prompt("Desea Seguir Jugando?");
-            opcion.toLowerCase();
+            opcion = opcion.toLowerCase();
             if(opcion === "si") {
                 reiniciarJuego();
             }
