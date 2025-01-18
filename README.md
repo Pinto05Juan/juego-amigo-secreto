@@ -9,4 +9,4 @@ Una vez, el usuario este en la pagina, vera 2 botones uno que diga "Añadir" y o
 
 Para este juego se utilizo HTML, CSS Y JAVASCRIPT
 
-AUTORES: Pinto Juan
+Autor/es: Pinto Juan
