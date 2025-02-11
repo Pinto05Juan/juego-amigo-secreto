@@ -5,7 +5,7 @@ let listaResultado = document.getElementById("resultado");
 
 function agregarAmigo() {
     let amigo = document.querySelector("input").value
-    if(amigo == "") {
+    if(amigo.trim() == "") {
         alert("Ingrese un nombre, por favor");
     } else {
         nombresAmigos.push(amigo);
