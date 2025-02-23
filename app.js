@@ -37,11 +37,34 @@ function sortearAmigo() {
     }
     setTimeout(function() {
         if(terminoJuego) {
-            let opcion = prompt("Desea Seguir Jugando?");
-            opcion = opcion.toLowerCase();
-            if(opcion === "si") {
-                reiniciarJuego();
+            const fondo = document.createElement("div");
+            fondo.classList.add("modal-fondo");
+                        
+            const divGameEnd = document.createElement("div")
+            divGameEnd.classList.add("modal-cuadro");
+            divGameEnd.innerHTML = `
+            <p>¿Desea seguir jugando?</p>
+            <button id="btn-si">Sí</button>
+            <button id="btn-no">No</button>
+            `
+            fondo.appendChild(divGameEnd)
+            document.body.appendChild(fondo)
+
+            function seguirJugando(opcion) {
+                document.body.removeChild(fondo)
+
+                if(opcion) {
+                    reiniciarJuego()
+                }
             }
+
+            document.getElementById("btn-si").addEventListener("click", function() {
+                seguirJugando(true);
+            });
+    
+            document.getElementById("btn-no").addEventListener("click", function() {
+                seguirJugando(false);
+            });
         }
     }, 1000);
     
