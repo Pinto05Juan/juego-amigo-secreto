@@ -5,11 +5,10 @@ let listaResultado = document.getElementById("resultado");
 
 function agregarAmigo() {
     let amigo = document.querySelector("input").value
-    if(amigo.trim() == "") {
+    if(amigo.trim() === "") {
         alert("Ingrese un nombre, por favor");
     } else {
         nombresAmigos.push(amigo);
-        console.log(nombresAmigos);
         actualizarLista();
         document.querySelector("input").value = "";
     }
@@ -31,7 +30,6 @@ function sortearAmigo() {
         alert("Todavia no hay amigos para sortear. Escriba el nombre de alguno");
     } else {
         let indiceSecreto = Math.floor(Math.random() * nombresAmigos.length);
-        console.log(indiceSecreto);
         amigoEncontrado = nombresAmigos[indiceSecreto];
         setItemText(listaAmigos, "");
         setItemText(listaResultado, `El amigo secreto es ${amigoEncontrado}`);
@@ -55,6 +53,6 @@ function reiniciarJuego() {
     setItemText(listaResultado, "");
 }
 
-function setItemText(lista, text) {
-    lista.textContent = text;
+function setItemText(item, text) {
+    item.textContent = text;
 }
